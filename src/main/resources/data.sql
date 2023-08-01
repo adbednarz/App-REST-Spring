@@ -1,0 +1,7 @@
+CREATE TABLE CurrencyRequests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    currency VARCHAR(3) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    date TIMESTAMP NOT NULL,
+    "value" DOUBLE NOT NULL
+);
