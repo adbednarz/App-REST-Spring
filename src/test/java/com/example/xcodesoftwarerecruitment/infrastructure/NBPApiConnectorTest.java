@@ -35,8 +35,8 @@ class NBPApiConnectorTest {
 	@Test
 	void should_return_currency_value() {
 		// given
-		List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
-		ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
+		final List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
+		final ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
 		final String URL = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
 		when(restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<CurrencyTable>>() {}))
 				.thenReturn(response);
@@ -51,8 +51,8 @@ class NBPApiConnectorTest {
 	@Test
 	void should_thrown_error_when_currency_code_not_exists() {
 		// given
-		List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
-		ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
+		final List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
+		final ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
 		final String URL = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
 		when(restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<CurrencyTable>>() {}))
 				.thenReturn(response);
@@ -66,8 +66,8 @@ class NBPApiConnectorTest {
 	@Test
 	void should_return_empty_optional_when_response_status_not_successful() {
 		// given
-		List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
-		ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(500));
+		final List<CurrencyTable> body = List.of(new CurrencyTable(List.of(new Currency("EUR", 4.41))));
+		final ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(500));
 		final String URL = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
 		when(restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<CurrencyTable>>() {}))
 				.thenReturn(response);
@@ -82,8 +82,8 @@ class NBPApiConnectorTest {
 	@Test
 	void should_return_empty_optional_when_response_empty() {
 		// given
-		List<CurrencyTable> body = List.of();
-		ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
+		final List<CurrencyTable> body = List.of();
+		final ResponseEntity<List<CurrencyTable>> response = new ResponseEntity<>(body, HttpStatusCode.valueOf(200));
 		final String URL = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
 		when(restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<CurrencyTable>>() {}))
 				.thenReturn(response);
